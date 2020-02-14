@@ -76,5 +76,11 @@ namespace MechanicARM
         {
             TryToLogin();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Form Cs = new ConnectionSettings();
+            Cs.Show();
+        }
     }
 }

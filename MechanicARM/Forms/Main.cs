@@ -213,7 +213,7 @@ namespace MechanicARM
 
         void op()
         {
-            i = 60;
+            i = 30;
             label2.Text = "Обновление таблицы через: " + i.ToString();
             timer1.Interval = 1000;
             timer1.Enabled = true;
