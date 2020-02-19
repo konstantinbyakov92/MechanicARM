@@ -43,15 +43,20 @@ namespace MechanicARM.Service
             return new SqlConnection(connection);
         }
 
+        //Возвращает результат попытки аутентификации
         public static string[] TryLogin(string log, string pas)
         {
+            //проверяем соединение
             if (CheckBaseConnection())
             {
+                //получаем подключение
                 SqlConnection conn = GetConnection();
                 try
                 {
+                    //формируем комманду
                     SqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = "EXEC dbo.Proc_USER_REGISTRATION @U_LOGIN = '" + log + "', @U_PSW = '" + pas + "'";
+                    //открываем соединение
                     conn.Open();
                     SqlDataReader sdr = cmd.ExecuteReader();
                     while (sdr.Read())
@@ -64,6 +69,7 @@ namespace MechanicARM.Service
                         res[4] = sdr.GetString(4);
                         return res;
                     }
+                    //закрываем соединение
                     conn.Close();
                     return null;
                 }
@@ -73,7 +79,7 @@ namespace MechanicARM.Service
                 }
             }
             else
-                throw new Exception("Отсутствует подключение к базе данных");
+                throw new Exception("Отсутсвует подключение к БД");
             return null;
         }
 
@@ -86,7 +92,7 @@ namespace MechanicARM.Service
                 SqlConnection conn = GetConnection();
                 try
                 {
-                    //формируем команду
+                    //формируем комманду
                     SqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = command;
                     //открываем соединение
@@ -95,7 +101,7 @@ namespace MechanicARM.Service
                     while (sdr.Read())
                     {
                         string[] res = new string[3];
-                        res[0] = sdr.GetString(0).ToString();
+                        res[0] = sdr.GetInt32(0).ToString();
                         res[1] = sdr.GetInt32(1).ToString();
                         res[2] = sdr.GetString(2).ToString();
                         return res;
@@ -110,7 +116,7 @@ namespace MechanicARM.Service
                 }
             }
             else
-                throw new Exception("Отсутствует подключение к БД");
+                throw new Exception("Отсутсвует подключение к БД");
             return null;
         }
 
@@ -217,12 +223,12 @@ namespace MechanicARM.Service
         }
 
         //Редактирование статуса ТЗА
-        public static string[] UpdateTZA(string lc_status_tza, string tzaid, int optype)
+        public static string[] UpdateTZA(string lc_status_tza, int tzaid, int optype)
         {       
             if (optype == 1)
-                return GetResultOfExec("EXEC dbo.Proc_Upd_TZA @StatusTZA = '" + lc_status_tza.Trim() + "', @U_ID = " + GlobalParam.pb_USER_ID.ToString());
+                return GetResultOfExec("EXEC dbo.Proc_Upd_TZA @StatusTZA = '" + lc_status_tza + "', @Id = " + tzaid + ", @U_ID = " + GlobalParam.pb_USER_ID);
             else
-                return GetResultOfExec("EXEC dbo.Proc_Upd_TZA @StatusTZA = '" + lc_status_tza.Trim() + "', @Id1C = '" + tzaid.Trim() + "', @U_ID = " + GlobalParam.pb_USER_ID.ToString());
+                return GetResultOfExec("EXEC dbo.Proc_Upd_TZA @StatusTZA = '" + lc_status_tza + "', @Id= " + tzaid + ", @U_ID = " + GlobalParam.pb_USER_ID);
         }
 
         //Удаление статуса ТЗА

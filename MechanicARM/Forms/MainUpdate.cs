@@ -13,7 +13,7 @@ namespace MechanicARM.Forms
 {
     public partial class MainUpdate : Form
     {
-        string tzaid;
+        int tzaid;
         int type;
 
         public MainUpdate()
@@ -26,7 +26,7 @@ namespace MechanicARM.Forms
         {
             InitializeComponent();
             Text = "Редактирование данных";
-            tzaid = row.Cells["Id1C"].Value.ToString();
+            tzaid = (int)row.Cells["Id"].Value;
             if (row.Cells["StatusTZA"].Value != null)
                 comboBox1.Text = row.Cells["StatusTZA"].Value.ToString();
             if (row.Cells["TZAName"].Value != null)

@@ -43,7 +43,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.удалитьtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.выбратьtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
@@ -134,7 +133,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(16, 73);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1035, 466);
             this.dataGridView1.TabIndex = 1;
@@ -148,10 +147,9 @@
             this.редактироватьtoolStripMenuItem,
             this.toolStripMenuItem1,
             this.удалитьtoolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.выбратьtoolStripMenuItem});
+            this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(239, 88);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(239, 64);
             // 
             // редактироватьtoolStripMenuItem
             // 
@@ -176,13 +174,6 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(235, 6);
-            // 
-            // выбратьtoolStripMenuItem
-            // 
-            this.выбратьtoolStripMenuItem.Name = "выбратьtoolStripMenuItem";
-            this.выбратьtoolStripMenuItem.Size = new System.Drawing.Size(238, 24);
-            this.выбратьtoolStripMenuItem.Text = "Выбрать запись";
-            this.выбратьtoolStripMenuItem.Click += new System.EventHandler(this.выбратьtoolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -220,9 +211,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -254,7 +245,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem удалитьtoolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem выбратьtoolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
     }

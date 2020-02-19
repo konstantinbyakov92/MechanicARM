@@ -125,20 +125,6 @@ namespace MechanicARM
         //    }
         //}
 
-        private void выбратьtoolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Если выделена строка
-            if (dataGridView1.SelectedCells.Count > 0)
-            {
-                //Получаем значения в текущей строке
-                int currentRow = dataGridView1.SelectedCells[0].RowIndex;
-                selectedRow = dataGridView1.Rows[currentRow];
-                //Закрываем форму
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            }
-            else
-                MessageBox.Show("Вы не выделили строку!");
-        }
 
         private void редактироватьtoolStripMenuItem_Click(object sender, EventArgs e)
         {

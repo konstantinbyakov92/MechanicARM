@@ -43,10 +43,11 @@ namespace MechanicARM.Forms
             {
                 if (dataGridView1.SelectedCells.Count > 0)
                 {
+                    //Получаем значения в текущей строке
                     int currentRow = dataGridView1.SelectedCells[0].RowIndex;
                     object pb_U_KEY_ACTIVE = dataGridView1.Rows[currentRow].Cells[7].Value;
                     object pb_U_ID = dataGridView1.Rows[currentRow].Cells[5].Value;
-
+                    //Устанавливаем доступность кнопок
                     if (pb_U_KEY_ACTIVE != null && (Convert.ToBoolean(pb_U_KEY_ACTIVE) == false))
                         удалитьToolStripMenuItem.Enabled = true;
                     else
